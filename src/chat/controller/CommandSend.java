@@ -6,14 +6,19 @@
 
 package chat.controller;
 
+import chat.util.OhmLogger;
 import chat.view.ChatView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Christian
  */
-public class CommandSend 
+public class CommandSend implements ActionListener
 {
+  private static Logger lg = OhmLogger.getLogger();
   private ChatView view;
   private Transmitter tm;
   
@@ -21,5 +26,17 @@ public class CommandSend
   {
     this.view = view;
     this.tm = tm;
+  }
+
+  public void registerEvents()
+  {
+    view.getBtnSend().addActionListener(this);
+  }
+  
+  @Override
+  public void actionPerformed(ActionEvent e)
+  {
+    System.out.println("Sending");
+    lg.info("Sending Message");
   }
 }

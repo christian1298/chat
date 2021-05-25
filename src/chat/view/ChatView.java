@@ -13,6 +13,62 @@ public class ChatView extends javax.swing.JFrame
 {
 
   /**
+   * @return the SelectSC
+   */
+  public javax.swing.JComboBox<String> getSelectSC()
+  {
+    return SelectSC;
+  }
+
+  /**
+   * @return the BtnConnect
+   */
+  public javax.swing.JToggleButton getBtnConnect()
+  {
+    return BtnConnect;
+  }
+
+  /**
+   * @return the BtnSend
+   */
+  public javax.swing.JButton getBtnSend()
+  {
+    return BtnSend;
+  }
+
+  /**
+   * @return the TAExtern
+   */
+  public javax.swing.JTextArea getTAExtern()
+  {
+    return TAExtern;
+  }
+
+  /**
+   * @return the TAUser
+   */
+  public javax.swing.JTextArea getTAUser()
+  {
+    return TAUser;
+  }
+
+  /**
+   * @return the TFMessage
+   */
+  public javax.swing.JTextField getTFMessage()
+  {
+    return TFMessage;
+  }
+
+  /**
+   * @return the TfAdress
+   */
+  public javax.swing.JTextField getTfAdress()
+  {
+    return TfAdress;
+  }
+
+  /**
    * Creates new form NewJFrame
    */
   public ChatView()

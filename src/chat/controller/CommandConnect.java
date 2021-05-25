@@ -6,14 +6,29 @@
 
 package chat.controller;
 
+import chat.util.OhmLogger;
 import chat.view.ChatView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Christian
  */
-public class CommandConnect 
+public class CommandConnect implements ActionListener
 {
+  private static Logger lg = OhmLogger.getLogger();
   private ChatView view;
   private Transmitter tm;
   
@@ -21,5 +36,28 @@ public class CommandConnect
   {
     this.view = view;
     this.tm = tm;
+  }
+  
+  public void registerEvents()
+  {
+    view.getBtnConnect().addActionListener(this);
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e)
+  {
+    if(view.getSelectSC().getSelectedItem() == "Server")
+    {
+      tm.start();
+      
+    }
+    else if(view.getSelectSC().getSelectedItem() == "Client")
+    {
+      System.out.println("Client");
+      
+    }
+    
+    System.out.println("Connecting");
+    lg.info("Connecting");
   }
 }
