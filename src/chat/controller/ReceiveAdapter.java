@@ -14,10 +14,11 @@ import java.util.concurrent.Flow.Subscriber;
  *
  * @author Christian
  */
-public class ReceiveAdapter implements Subscriber
+public class ReceiveAdapter implements Subscriber<String>
 {
   private ChatView view;
   private Transmitter tm;
+  private Flow.Subscription subscription;
   
   public ReceiveAdapter(ChatView view, Transmitter tm)
   {
@@ -25,14 +26,16 @@ public class ReceiveAdapter implements Subscriber
     this.tm = tm;
   }
 
+  public void onSubscription()
+  {
+    tm.addSubscription(this);
+  }
+  
   @Override
   public void onSubscribe(Flow.Subscription subscription)
   {
-  }
-
-  @Override
-  public void onNext(Object item)
-  {
+    this.subscription = subscription;
+    subscription.request(1);
   }
 
   @Override
@@ -45,6 +48,17 @@ public class ReceiveAdapter implements Subscriber
   {
   }
   
+  @Override
+  public void onNext(String item)
+  {
+    
+    view.getTAUser().setText(view.getTAUser().getText().concat("\n"));
+    view.getTAExtern().setText(view.getTAExtern().getText().concat("\n" + item));
+    
+    
+    
+    subscription.request(1);
+  }
     
 //  public String leseInhalt(String urlAdresse)
 //  {
@@ -80,6 +94,8 @@ public class ReceiveAdapter implements Subscriber
 //    }
 //    return (puffer.toString());
 //  }
+
+
 }
 
 

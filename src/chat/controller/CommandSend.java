@@ -36,7 +36,16 @@ public class CommandSend implements ActionListener
   @Override
   public void actionPerformed(ActionEvent e)
   {
-    System.out.println("Sending");
-    lg.info("Sending Message");
+    String s = view.getTFMessage().getText();
+    view.getTFMessage().setText("");
+    
+    if(tm.isConnected())
+    {
+      lg.info("Sending Message: " + s);
+
+      view.getTAUser().setText(view.getTAUser().getText().concat("\n" + s));
+      view.getTAExtern().setText(view.getTAExtern().getText().concat("\n"));
+      tm.sendMSG(s);
+    }
   }
 }

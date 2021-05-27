@@ -8,6 +8,7 @@ package chat;
 
 import chat.controller.CommandConnect;
 import chat.controller.CommandSend;
+import chat.controller.ReceiveAdapter;
 import chat.controller.Transmitter;
 import chat.view.ChatView;
 import javax.swing.WindowConstants;
@@ -24,6 +25,8 @@ public class Start
     Transmitter tm = new Transmitter();
     CommandSend send = new CommandSend(view,tm);
     CommandConnect con = new CommandConnect(view,tm);
+    ReceiveAdapter rec = new ReceiveAdapter(view,tm);
+    rec.onSubscription();
     send.registerEvents();
     con.registerEvents();
     

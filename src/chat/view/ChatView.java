@@ -13,6 +13,14 @@ public class ChatView extends javax.swing.JFrame
 {
 
   /**
+   * @return the TfIP
+   */
+  public javax.swing.JTextField getTfIP()
+  {
+    return TfIP;
+  }
+
+  /**
    * @return the SelectSC
    */
   public javax.swing.JComboBox<String> getSelectSC()
@@ -65,7 +73,7 @@ public class ChatView extends javax.swing.JFrame
    */
   public javax.swing.JTextField getTfAdress()
   {
-    return TfAdress;
+    return TfIP;
   }
 
   /**
@@ -98,7 +106,7 @@ public class ChatView extends javax.swing.JFrame
     SelectSC = new javax.swing.JComboBox<>();
     jSeparator1 = new javax.swing.JSeparator();
     jLabel1 = new javax.swing.JLabel();
-    TfAdress = new javax.swing.JTextField();
+    TfIP = new javax.swing.JTextField();
     jSeparator2 = new javax.swing.JSeparator();
     BtnConnect = new javax.swing.JToggleButton();
 
@@ -145,16 +153,16 @@ public class ChatView extends javax.swing.JFrame
     jLabel1.setText("IP:");
     North.add(jLabel1);
 
-    TfAdress.setColumns(15);
-    TfAdress.setText("127.0.0.1");
-    TfAdress.addActionListener(new java.awt.event.ActionListener()
+    TfIP.setColumns(15);
+    TfIP.setText("127.0.0.1");
+    TfIP.addActionListener(new java.awt.event.ActionListener()
     {
       public void actionPerformed(java.awt.event.ActionEvent evt)
       {
-        TfAdressActionPerformed(evt);
+        TfIPActionPerformed(evt);
       }
     });
-    North.add(TfAdress);
+    North.add(TfIP);
     North.add(jSeparator2);
 
     BtnConnect.setText("Connect");
@@ -165,10 +173,10 @@ public class ChatView extends javax.swing.JFrame
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  private void TfAdressActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TfAdressActionPerformed
-  {//GEN-HEADEREND:event_TfAdressActionPerformed
+  private void TfIPActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TfIPActionPerformed
+  {//GEN-HEADEREND:event_TfIPActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_TfAdressActionPerformed
+  }//GEN-LAST:event_TfIPActionPerformed
 
   /**
    * @param args the command line arguments
@@ -230,7 +238,7 @@ public class ChatView extends javax.swing.JFrame
   private javax.swing.JTextArea TAExtern;
   private javax.swing.JTextArea TAUser;
   private javax.swing.JTextField TFMessage;
-  private javax.swing.JTextField TfAdress;
+  private javax.swing.JTextField TfIP;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JSeparator jSeparator1;

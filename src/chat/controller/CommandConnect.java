@@ -46,18 +46,22 @@ public class CommandConnect implements ActionListener
   @Override
   public void actionPerformed(ActionEvent e)
   {
-    if(view.getSelectSC().getSelectedItem() == "Server")
+    if(view.getSelectSC().getSelectedItem() == "Server" && tm.isConnected() == false)
     {
+      lg.info("Server");
+      tm.setServer();
       tm.start();
       
     }
-    else if(view.getSelectSC().getSelectedItem() == "Client")
+    else if(view.getSelectSC().getSelectedItem() == "Client" && tm.isConnected() == false)
     {
-      System.out.println("Client");
-      
+      lg.info("Client");
+      tm.setClient();
+      tm.setIP(view.getTfIP().getText());
+      tm.start();
     }
     
-    System.out.println("Connecting");
-    lg.info("Connecting");
+    //System.out.println("Connecting");
+    //lg.info("Connecting");
   }
 }
