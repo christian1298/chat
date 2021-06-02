@@ -59,43 +59,6 @@ public class ReceiveAdapter implements Subscriber<String>
     
     subscription.request(1);
   }
-    
-//  public String leseInhalt(String urlAdresse)
-//  {
-//    URL urlQuelle;
-//    try
-//    {
-//      urlQuelle = new URL(urlAdresse);
-//    }
-//    catch(MalformedURLException urlex)
-//    {
-//      //JOptionPane.showMessageDialog(frm, urlex);
-//    }
-//    
-//    StringBuffer puffer = new StringBuffer();
-//    String zeile;
-//    
-//    try
-//    {
-//      InputStream is = urlQuelle.openStream();
-//      InputStreamReader isr = new InputStreamReader(is);
-//      BufferedReader buffin = new BufferedReader(isr);
-//      while((zeile = buffin.readLine()) != null)
-//      {
-//        puffer.append(zeile);
-//        puffer.append("\n");
-//      }
-//      buffin.close();
-//      is.close();
-//    }
-//    catch(IOException ioex)
-//    {
-//      //JoptionPane.showMessageDialog(frm, ioex);
-//    }
-//    return (puffer.toString());
-//  }
-
-
 }
 
 

@@ -11,6 +11,8 @@ import chat.controller.CommandSend;
 import chat.controller.ReceiveAdapter;
 import chat.controller.Transmitter;
 import chat.view.ChatView;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 /**
@@ -38,6 +40,14 @@ public class Start
 
   public static void main(String[] args) 
   {
+    try
+    {
+      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    }
+    catch (Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e.toString());
+    }
     new Start();
   }
 

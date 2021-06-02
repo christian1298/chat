@@ -10,16 +10,6 @@ import chat.util.OhmLogger;
 import chat.view.ChatView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -51,7 +41,6 @@ public class CommandConnect implements ActionListener
       lg.info("Server");
       tm.setServer();
       tm.start();
-      
     }
     else if(view.getSelectSC().getSelectedItem() == "Client" && tm.isConnected() == false)
     {
@@ -60,8 +49,5 @@ public class CommandConnect implements ActionListener
       tm.setIP(view.getTfIP().getText());
       tm.start();
     }
-    
-    //System.out.println("Connecting");
-    //lg.info("Connecting");
   }
 }
